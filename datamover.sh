@@ -127,7 +127,6 @@ output="vdm $1 is $3"
 
 datamover_find_name(){
    #find in data movers
-   echo name:$1
    cont=1
    until test $cont -gt $number_dm ; do
       if (test "${dm_name[$cont]}" = "$1") then
@@ -160,7 +159,6 @@ read_datamover_names(){
 			break
 		else
 			name[$cont]="$temp"
-			echo ${name[$cont]}
 			cont=`expr $cont + 1`
 		fi
 	done
@@ -204,7 +202,6 @@ do
 	datamover_find_name $i
 	if test $encontrado -eq 0
 		then
-		echo entra
 		state=$ST_UK
 		output="data mover $i not found"
 		output_long="valid dm and vdm names: $dmlist"
